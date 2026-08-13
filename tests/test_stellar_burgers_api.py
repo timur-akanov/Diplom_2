@@ -4,7 +4,7 @@ import allure
 import pytest
 import requests
 
-BASE_URL = "https://stellarburgers.nomoreparties.site"
+BASE_URL = "https://qa-stellarburgers.education-services.ru"
 
 
 def make_user(overrides=None):
@@ -158,13 +158,16 @@ class TestUserDataAPI:
             assert data["message"] == "You should be authorised"
 
     @allure.title("Изменение любого поля пользователя с авторизацией")
-    @pytest.mark.parametrize("field,value", [("email", "changed_field@example.com"), ("password", "new_password_321"), ("name", "Changed Name")])
+    @pytest.mark.parametrize("field,value", [("email", None), ("password", "new_password_321"), ("name", "Changed Name")])
     def test_update_any_user_field_with_authorization(self, field, value):
         payload = make_user()
         register_response = register_user(payload)
         assert register_response.status_code == 200, register_response.text
         access_token = register_response.json()["accessToken"]
         headers = {"Authorization": access_token}
+
+        if field == "email":
+            value = f"updated_{uuid.uuid4().hex[:8]}@example.com"
 
         with allure.step(f"Обновляем поле {field}"):
             response = requests.patch(
@@ -238,9 +241,10 @@ class TestOrderAPI:
 
     @allure.title("Создание заказа с неверным хешем ингредиентов")
     def test_create_order_with_invalid_ingredient_hash(self):
+        invalid_id = "000000000000000000000000"
         response = requests.post(
             f"{BASE_URL}/api/orders",
-            json={"ingredients": ["invalid_hash_123"]},
+            json={"ingredients": [invalid_id]},
             timeout=10,
         )
 
@@ -248,7 +252,7 @@ class TestOrderAPI:
             assert response.status_code == 400, response.text
             data = response.json()
             assert data["success"] is False
-            assert data["message"] == "One or more ingredients are invalid"
+            assert data["message"] == "One or more ids provided are incorrect"
 
 
 @allure.feature("Заказы пользователя")
