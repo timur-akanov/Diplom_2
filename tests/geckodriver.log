@@ -1,0 +1,52 @@
+1786881459988	geckodriver	INFO	Listening on 127.0.0.1:65180
+1786881460498	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilep2UUXo"
+1786881460783	Marionette	INFO	Marionette enabled
+2026-08-16 11:57:40.849 Firefox GPU Helper[49668:5112284] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-16 11:57:40.904 Firefox GPU Helper[49668:5112284] Error received in message reply handler: Connection invalid
+2026-08-16 11:57:40.904 Firefox GPU Helper[49668:5112295] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1786881460989	Marionette	INFO	Listening on port 65196
+WebDriver BiDi listening on ws://127.0.0.1:65181
+Read port: 65196
+1786881461084	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1786881474240	Marionette	INFO	Stopped listening on port 65196
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1786881474496	webdriver::server	INFO	Shutting down
+1786881489102	geckodriver	INFO	Listening on 127.0.0.1:65362
+1786881489288	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilel71k1K"
+1786881489545	Marionette	INFO	Marionette enabled
+2026-08-16 11:58:09.615 Firefox GPU Helper[49735:5113563] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-16 11:58:09.662 Firefox GPU Helper[49735:5113577] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-16 11:58:09.662 Firefox GPU Helper[49735:5113563] Error received in message reply handler: Connection invalid
+1786881489732	Marionette	INFO	Listening on port 65372
+WebDriver BiDi listening on ws://127.0.0.1:65363
+Read port: 65372
+1786881489850	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1786881502912	Marionette	INFO	Stopped listening on port 65372
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1786881503173	webdriver::server	INFO	Shutting down
+1786881517824	geckodriver	INFO	Listening on 127.0.0.1:65530
+1786881518024	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofile1wTLA8"
+1786881518271	Marionette	INFO	Marionette enabled
+2026-08-16 11:58:38.342 Firefox GPU Helper[49797:5114847] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-16 11:58:38.392 Firefox GPU Helper[49797:5114847] Error received in message reply handler: Connection invalid
+2026-08-16 11:58:38.392 Firefox GPU Helper[49797:5114859] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1786881518456	Marionette	INFO	Listening on port 49156
+WebDriver BiDi listening on ws://127.0.0.1:65531
+Read port: 49156
+1786881518574	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1786881531530	Marionette	INFO	Stopped listening on port 49156
+console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1786881531782	webdriver::server	INFO	Shutting down
