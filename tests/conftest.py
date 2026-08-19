@@ -1,6 +1,4 @@
 import os
-import uuid
-import requests
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -10,26 +8,34 @@ from selenium.webdriver.firefox.service import Service as GeckoService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
-
-BASE_URL = os.environ.get('BASE_URL', 'https://qa-stellarburgers.education-services.ru')
-
-
-@pytest.fixture(scope='session')
-def base_url():
-    return BASE_URL
+from api import APIClient, AuthRepository
 
 
 @pytest.fixture(scope='session')
 def api_client():
-    class C:
-        @staticmethod
-        def create_user():
-            email = f'user_{uuid.uuid4().hex[:8]}@example.com'
-            payload = {'email': email, 'password': 'TestPass123', 'name': 'UI Tester'}
-            r = requests.post(f'{BASE_URL}/api/auth/register', json=payload, timeout=10)
-            return payload, r
+    """Fixture providing API client for UI tests with ROM architecture."""
+    class UITestAPIClient:
+        def __init__(self):
+            self.http_client = APIClient()
+            self.auth = AuthRepository(self.http_client)
+        
+        def create_user(self):
+            """Create a test user for UI tests.
+            
+            Returns:
+                tuple: (user credentials dict, response)
+            """
+            user_creds, user = self.auth.create_test_user(
+                {"password": "TestPass123", "name": "UI Tester"}
+            )
+            
+            class Response:
+                def __init__(self, user):
+                    self.status_code = 200 if user else 400
+            
+            return user_creds, Response(user)
 
-    return C()
+    return UITestAPIClient()
 
 
 @pytest.fixture(params=['chrome', 'firefox'])

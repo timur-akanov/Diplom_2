@@ -2,19 +2,20 @@ import allure
 from pages.main_page import MainPage
 from pages.constructor_page import ConstructorPage
 from pages.modal_page import ModalPage
+from constants import BASE_URL
 
 
 @allure.feature('Основной функционал')
 class TestMainFunctionality:
-    def test_constructor_and_feed_navigation(self, driver, base_url):
+    def test_constructor_and_feed_navigation(self, driver):
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_constructor()
         main.go_to_feed()
 
-    def test_ingredient_modal_and_add(self, driver, base_url):
+    def test_ingredient_modal_and_add(self, driver):
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_constructor()
         constructor = ConstructorPage(driver)
         constructor.open_ingredient()
@@ -22,11 +23,11 @@ class TestMainFunctionality:
         assert modal.is_open()
         modal.close()
 
-    def test_add_ingredient_increases_counter_and_place_order(self, driver, base_url, api_client):
+    def test_add_ingredient_increases_counter_and_place_order(self, driver, api_client):
         creds, r = api_client.create_user()
         assert r.status_code == 200
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_profile()
         # login via UI
         from pages.login_page import LoginPage

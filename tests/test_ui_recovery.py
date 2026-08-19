@@ -5,22 +5,23 @@ from selenium.webdriver.common.by import By
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.recovery_page import RecoveryPage
+from constants import BASE_URL
 
 
 @allure.feature('Восстановление пароля')
 class TestRecovery:
-    def test_navigate_to_recovery(self, driver, base_url):
+    def test_navigate_to_recovery(self, driver):
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_profile()
         login = LoginPage(driver)
         login.go_to_recover()
         recovery = RecoveryPage(driver)
         assert recovery.is_email_input_present()
 
-    def test_recovery_input_and_click(self, driver, base_url):
+    def test_recovery_input_and_click(self, driver):
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_profile()
         login = LoginPage(driver)
         login.go_to_recover()
@@ -28,9 +29,9 @@ class TestRecovery:
         assert recovery.is_email_input_present()
         recovery.click_recover()
 
-    def test_show_hide_password_makes_active(self, driver, base_url):
+    def test_show_hide_password_makes_active(self, driver):
         main = MainPage(driver)
-        main.open(base_url)
+        main.open(BASE_URL)
         main.go_to_profile()
 
         password_input = driver.find_elements(By.XPATH, "//input[@type='password' or @type='text']")
