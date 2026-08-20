@@ -1,7 +1,6 @@
 import re
 
 import allure
-import pytest
 import requests
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -32,12 +31,11 @@ class TestFeed:
         body_text = driver.find_element(By.TAG_NAME, 'body').text
         total = re.search(r'Выполнено\s+за\s+всё\s+время\s*(\d+)', body_text, flags=re.I | re.U)
         today = re.search(r'Выполнено\s+за\s+сегодня\s*(\d+)', body_text, flags=re.I | re.U)
-        work = re.search(r'В\s+работе\s*(\d+|\S+)', body_text, flags=re.I | re.U)
+        assert total is not None, 'Feed does not display the total completed orders counter'
+        assert today is not None, 'Feed does not display today’s completed orders counter'
         return {
-            'total': int(total.group(1)) if total else None,
-            'today': int(today.group(1)) if today else None,
-            'work': int(work.group(1)) if work and work.group(1).isdigit() else None,
-            'text': body_text,
+            'total': int(total.group(1)),
+            'today': int(today.group(1)),
         }
 
     def _counter_elements_present(self, driver):
@@ -85,8 +83,7 @@ class TestFeed:
         main = MainPage(driver)
         main.go_to_feed()
 
-        if not self._counter_elements_present(driver):
-            pytest.skip('Current UI version does not render feed counters')
+        assert self._counter_elements_present(driver), 'Feed does not display order counters'
 
         before = self._get_feed_stats(driver)
         token = driver.execute_script('return window.localStorage.getItem("accessToken")')
@@ -106,8 +103,8 @@ class TestFeed:
         WebDriverWait(driver, 10).until(lambda d: order_number in d.find_element(By.TAG_NAME, 'body').text)
 
         after = self._get_feed_stats(driver)
-        assert after['total'] is not None and before['total'] is not None and after['total'] >= before['total']
-        assert after['today'] is not None and before['today'] is not None and after['today'] >= before['today']
+        assert after['total'] >= before['total']
+        assert after['today'] >= before['today']
 
     def test_new_order_number_is_shown_in_work(self, driver, api_client):
         creds, r = api_client.create_user()
@@ -130,7 +127,6 @@ class TestFeed:
         main = MainPage(driver)
         main.go_to_feed()
         body_text = driver.find_element(By.TAG_NAME, 'body').text
-        if 'В работе' not in body_text:
-            pytest.skip('Current feed layout does not render a separate “В работе” block')
+        assert 'В работе' in body_text, 'Feed does not display the “В работе” block'
         WebDriverWait(driver, 15).until(lambda d: order_number in d.find_element(By.TAG_NAME, 'body').text)
         assert order_number in driver.find_element(By.TAG_NAME, 'body').text

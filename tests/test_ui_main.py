@@ -2,7 +2,9 @@ import allure
 from pages.main_page import MainPage
 from pages.constructor_page import ConstructorPage
 from pages.modal_page import ModalPage
+from pages.login_page import LoginPage
 from constants import BASE_URL
+
 
 
 @allure.feature('Основной функционал')
@@ -30,7 +32,6 @@ class TestMainFunctionality:
         main.open(BASE_URL)
         main.go_to_profile()
         # login via UI
-        from pages.login_page import LoginPage
         login = LoginPage(driver)
         login.input_email(creds['email'])
         login.input_password(creds['password'])
