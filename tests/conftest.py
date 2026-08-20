@@ -65,6 +65,26 @@ def existing_user(api_client, user_cleanup):
     return user_creds, user
 
 
+@pytest.fixture
+def existing_user_with_order(api_client, existing_user):
+    """Fixture that creates a registered user with one order.
+
+    Returns:
+        tuple: (user credentials dict, User object, Order object)
+    """
+    user_creds, user = existing_user
+    ingredient_ids = api_client.ingredients.get_valid_ids()
+    order, status_code = api_client.orders.create(
+        ingredient_ids,
+        access_token=user.access_token
+    )
+
+    if status_code != 200 or order is None:
+        pytest.fail(f"Failed to create order for test setup: status_code={status_code}")
+
+    return user_creds, user, order
+
+
 @pytest.fixture(scope='session')
 def ui_api_client():
     """Fixture providing API client for UI tests (session scope)."""

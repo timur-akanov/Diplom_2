@@ -206,17 +206,9 @@ class TestOrderAPI:
 @allure.feature("Заказы пользователя")
 class TestUserOrderAPI:
     @allure.title("Получение заказов авторизованного пользователя")
-    def test_get_user_orders_with_authorization(self, api_client, existing_user):
+    def test_get_user_orders_with_authorization(self, api_client, existing_user_with_order):
         """Test getting user's orders with valid authorization."""
-        user_creds, created_user = existing_user
-        
-        ingredient_ids = api_client.ingredients.get_valid_ids()
-        
-        order, status_code = api_client.orders.create(
-            ingredient_ids,
-            access_token=created_user.access_token
-        )
-        assert status_code == 200
+        user_creds, created_user, created_order = existing_user_with_order
 
         orders, status_code = api_client.orders.get_user_orders(
             created_user.access_token
@@ -224,6 +216,7 @@ class TestUserOrderAPI:
 
         assert status_code == 200
         assert isinstance(orders, list)
+        assert any(order.number == created_order.number for order in orders)
 
     @allure.title("Получение заказов неавторизованного пользователя")
     def test_get_user_orders_without_authorization(self, api_client):
