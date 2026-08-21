@@ -1,5 +1,8 @@
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators.constructor_locators import ConstructorLocators
 
 
 class ConstructorPage:
@@ -7,12 +10,25 @@ class ConstructorPage:
         self.driver = driver
 
     def open_ingredient(self):
-        ingredients = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'ingredient') or contains(@class, 'Ingredient') or contains(@class, 'BurgerIngredient')] | //li[contains(@class, 'ingredient')] | //div[contains(@class, 'ingredient')]")
-        if not ingredients:
-            raise AssertionError('No ingredients are available in the constructor')
-        ingredients[0].click()
+        ingredient = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ConstructorLocators.FIRST_INGREDIENT)
+        )
+        ingredient.click()
+
+    def get_ingredient_counter_value(self):
+        counters = self.driver.find_elements(*ConstructorLocators.INGREDIENT_COUNTER)
+        if not counters:
+            return 0
+        try:
+            return int(counters[0].text.strip())
+        except (ValueError, AttributeError):
+            return 0
 
     def drag_ingredient_to_constructor(self):
-        ingredient = self.driver.find_element(By.XPATH, "//*[contains(@class, 'ingredient') or contains(@class, 'Ingredient') or contains(@class, 'BurgerIngredient')][1]")
-        target = self.driver.find_element(By.XPATH, "//*[contains(@class, 'constructor') or contains(@class, 'Basket') or contains(@class, 'BurgerConstructor') or contains(@class, 'content')][1]")
-        ActionChains(self.driver).drag_and_drop(ingredient, target).perform()
+        ingredient = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(ConstructorLocators.FIRST_INGREDIENT)
+        )
+        drop_zone = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(ConstructorLocators.CONSTRUCTOR_DROP_ZONE)
+        )
+        ActionChains(self.driver).drag_and_drop(ingredient, drop_zone).perform()

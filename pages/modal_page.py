@@ -1,4 +1,7 @@
-from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators.modal_locators import ModalLocators
 
 
 class ModalPage:
@@ -6,22 +9,39 @@ class ModalPage:
         self.driver = driver
 
     def is_open(self):
-        return any(
-            el.is_displayed() for el in self.driver.find_elements(By.XPATH, "//*[contains(text(), 'Детали ингредиента') or contains(text(), 'Состав') or contains(text(), 'Ингредиент')]")
-        )
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.visibility_of_element_located(ModalLocators.MODAL_CONTENT)
+            )
+            return True
+        except Exception:
+            return False
+
+    def is_closed(self):
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.invisibility_of_element_located(ModalLocators.MODAL_CONTENT)
+            )
+            return True
+        except Exception:
+            return False
 
     def close(self):
-        close_buttons = self.driver.find_elements(By.XPATH, "//button[contains(@aria-label, 'close') or contains(@class, 'close') or contains(@class, 'Modal_close')] | //button[@type='button'][(contains(., '×') or contains(., 'Закрыть'))]")
-        if close_buttons:
-            close_buttons[0].click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ModalLocators.CLOSE_BUTTON)
+        ).click()
 
     def place_order(self):
-        self.driver.find_element(By.XPATH, "//button[contains(., 'Оформить заказ') or contains(., 'Place order')]").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ModalLocators.PLACE_ORDER_BUTTON)
+        ).click()
 
     def order_number(self):
-        elements = self.driver.find_elements(By.XPATH, "//*[contains(text(), '#') or contains(text(), 'Номер заказа')]")
-        for el in elements:
-            text = el.text
-            if any(ch.isdigit() for ch in text):
-                return text
-        return None
+        try:
+            el = WebDriverWait(self.driver, 30).until(
+                EC.visibility_of_element_located(ModalLocators.ORDER_NUMBER)
+            )
+            return el.text.strip()
+        except Exception:
+            return None
+

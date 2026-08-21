@@ -2,17 +2,29 @@ import re
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators.feed_locators import FeedLocators
 
 
 class FeedPage:
     def __init__(self, driver):
         self.driver = driver
 
+    def is_feed_title_displayed(self):
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.visibility_of_element_located(FeedLocators.FEED_TITLE)
+            )
+            return True
+        except Exception:
+            return False
+
     def open_first_order(self):
-        orders = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'order') or contains(@class, 'Order') or contains(@class, 'order-card')] | //li[contains(@class, 'order')] | //a[contains(@class, 'order')]")
-        if not orders:
-            raise AssertionError('No orders are available in the feed')
-        orders[0].click()
+        order = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(FeedLocators.ORDER_CARD)
+        )
+        order.click()
 
     def body_text(self):
         return self.driver.find_element(By.TAG_NAME, 'body').text
@@ -29,7 +41,9 @@ class FeedPage:
 
     def counter_elements_present(self):
         return bool(self.driver.execute_script(
-            "return Array.from(document.querySelectorAll('*')).some(el => /Выполнено|В работе|за всё время|за сегодня/i.test((el.textContent || '').trim()) || /counter/i.test(el.className || ''));"
+            "return Array.from(document.querySelectorAll('*')).some("
+            "el => /Выполнено|В работе|за всё время|за сегодня/i.test("
+            "(el.textContent || '').trim()) || /counter/i.test(el.className || ''));"
         ))
 
     def get_stats(self):

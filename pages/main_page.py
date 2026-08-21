@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators.main_locators import MainLocators
 
 
 class MainPage:
@@ -19,6 +22,12 @@ class MainPage:
         )
         return self.current_url()
 
+    def wait_for_url_contains(self, part, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            lambda d: part in d.current_url
+        )
+        return self.current_url()
+
     def wait_for_url_endswith(self, suffix, timeout=10):
         expected = suffix.rstrip('/')
         WebDriverWait(self.driver, timeout).until(
@@ -29,20 +38,17 @@ class MainPage:
     def get_access_token(self):
         return self.driver.execute_script('return window.localStorage.getItem("accessToken")')
 
-    def body_text(self):
-        return self.driver.find_element(By.TAG_NAME, 'body').text
-
-    def wait_for_body_text(self, text, timeout=10):
-        WebDriverWait(self.driver, timeout).until(
-            lambda d: text in d.find_element(By.TAG_NAME, 'body').text
-        )
-        return self.body_text()
-
     def go_to_profile(self):
-        self.driver.find_element(By.XPATH, "//a[contains(@href, '/account') or contains(., 'Личный кабинет')] ").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(MainLocators.PROFILE_LINK)
+        ).click()
 
     def go_to_constructor(self):
-        self.driver.find_element(By.XPATH, "//a[contains(@href, '/')]//*[contains(text(), 'Конструктор') or contains(., 'Конструктор')] | //p[contains(., 'Конструктор')] ").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(MainLocators.CONSTRUCTOR_LINK)
+        ).click()
 
     def go_to_feed(self):
-        self.driver.find_element(By.XPATH, "//a[contains(@href, '/feed') or contains(., 'Лента заказов')] ").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(MainLocators.FEED_LINK)
+        ).click()

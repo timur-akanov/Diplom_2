@@ -1,5 +1,7 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from locators.profile_locators import ProfileLocators
 
 
 class ProfilePage:
@@ -24,7 +26,11 @@ class ProfilePage:
         return self.current_url()
 
     def go_to_orders(self):
-        self.driver.find_element(By.XPATH, "//a[contains(@href, '/account/order-history') or contains(., 'История заказов')] ").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ProfileLocators.ORDER_HISTORY_LINK)
+        ).click()
 
     def logout(self):
-        self.driver.find_element(By.XPATH, "//button[contains(., 'Выход') or contains(@class, 'logout')] ").click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ProfileLocators.LOGOUT_BUTTON)
+        ).click()

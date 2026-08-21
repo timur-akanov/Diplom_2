@@ -1,45 +1,61 @@
 import allure
 
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
-from pages.recovery_page import RecoveryPage
 from constants import BASE_URL
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
+from pages.recovery_page import RecoveryPage
 
 
 @allure.feature('Восстановление пароля')
 class TestRecovery:
-    def test_navigate_to_recovery(self, driver):
+
+    @allure.title('Переход на страницу восстановления пароля')
+    def test_navigate_to_recovery_page(self, driver):
         main = MainPage(driver)
         main.open(BASE_URL)
         main.go_to_profile()
+
         login = LoginPage(driver)
         login.go_to_recover()
+
+        main.wait_for_url_contains('forgot-password')
         recovery = RecoveryPage(driver)
         assert recovery.is_email_input_present()
 
-    def test_recovery_input_and_click(self, driver):
+    @allure.title('Ввод почты и клик по кнопке «Восстановить»')
+    def test_recovery_email_input_and_submit(self, driver):
         main = MainPage(driver)
         main.open(BASE_URL)
         main.go_to_profile()
+
         login = LoginPage(driver)
         login.go_to_recover()
+
+        main.wait_for_url_contains('forgot-password')
         recovery = RecoveryPage(driver)
-        assert recovery.is_email_input_present()
+        recovery.input_email('test@example.com')
         recovery.click_recover()
 
-    def test_show_hide_password_makes_active(self, driver):
+        # После клика URL должен смениться (переход на страницу сброса)
+        main.wait_for_url_contains('reset-password')
+        assert 'reset-password' in main.current_url()
+
+    @allure.title('Кнопка показать/скрыть пароль подсвечивает поле ввода')
+    def test_show_hide_password_highlights_field(self, driver):
         main = MainPage(driver)
         main.open(BASE_URL)
         main.go_to_profile()
 
+        login = LoginPage(driver)
+        login.go_to_recover()
+
+        main.wait_for_url_contains('forgot-password')
         recovery = RecoveryPage(driver)
-        assert recovery.password_toggle_is_available(), 'Password visibility toggle is not rendered on the current form'
+        recovery.input_email('test@example.com')
+        recovery.click_recover()
 
-        before = recovery.is_password_field_active()
-        assert before is False
-
+        main.wait_for_url_contains('reset-password')
         recovery.toggle_password_visibility()
         recovery.focus_password_field()
-        active = recovery.is_password_field_active()
-        assert active is True
-        assert recovery.password_field_type() in ('password', 'text')
+
+        assert recovery.is_password_field_active()

@@ -81,6 +81,18 @@ class AuthRepository:
             return user, response.status_code
         return None, response.status_code
 
+    def delete_user(self, access_token: str) -> int:
+        token = normalize_token(access_token)
+        response = self.client.request(
+            'DELETE',
+            USER_ENDPOINT,
+            headers={
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {token}',
+            },
+        )
+        return response.status_code
+
     def create_test_user(self, data: Optional[Dict[str, str]] = None) -> Tuple[Dict[str, str], Optional[User]]:
         extra = data or {}
         email = extra.get('email') or f'user_{__import__("uuid").uuid4().hex[:8]}@example.com'
@@ -102,6 +114,7 @@ class AuthRepository:
         if response.status_code == 200 and data.get('success'):
             return data, response.status_code
         return data if data else None, response.status_code
+
 
 
 class IngredientsRepository:

@@ -12,44 +12,59 @@ from api import APIClient, AuthRepository
 
 
 @pytest.fixture(scope='session')
-def api_client():
-    """Fixture providing API client for UI tests with ROM architecture."""
-    class UITestAPIClient:
-        def __init__(self):
-            self.http_client = APIClient()
-            self.auth = AuthRepository(self.http_client)
-
-        def create_user(self):
-            """Create a test user for UI tests.
-
-            Returns:
-                tuple: (user credentials dict, response)
-            """
-            user_creds, user = self.auth.create_test_user(
-                {"password": "TestPass123", "name": "UI Tester"}
-            )
-
-            class Response:
-                def __init__(self, user):
-                    self.status_code = 200 if user else 400
-
-            return user_creds, Response(user)
-
-    return UITestAPIClient()
+def auth_repo():
+    """Shared AuthRepository for the entire test session."""
+    client = APIClient()
+    return AuthRepository(client)
 
 
 @pytest.fixture
-def logged_in_user(api_client):
-    """Return a ready-to-use token for API-backed UI tests."""
-    creds, _ = api_client.auth.create_test_user()
-    user, status_code = api_client.auth.login(creds['email'], creds['password'])
-    assert status_code == 200
-    assert user is not None
-    return {
+def registered_user(auth_repo):
+    """Creates a user via API before the test and deletes it after."""
+    creds, user = auth_repo.create_test_user()
+    assert user is not None, 'Failed to create test user via API'
+    yield creds
+    if user.access_token:
+        auth_repo.delete_user(user.access_token)
+
+
+@pytest.fixture
+def logged_in_user(auth_repo):
+    """Returns an API access token for a freshly created user. Deletes user after test."""
+    creds, user = auth_repo.create_test_user()
+    assert user is not None, 'Failed to create test user via API'
+    yield {
         'email': creds['email'],
         'password': creds['password'],
         'token': user.access_token,
     }
+    if user.access_token:
+        auth_repo.delete_user(user.access_token)
+
+
+# Kept for backward compatibility with test_stellar_burgers_api.py
+@pytest.fixture(scope='session')
+def api_client(auth_repo):
+    class APIClients:
+        def __init__(self, repo):
+            self.http_client = repo.client
+            self.auth = repo
+            from api import IngredientsRepository, OrdersRepository
+            self.ingredients = IngredientsRepository(repo.client)
+            self.orders = OrdersRepository(repo.client)
+
+        def create_user(self):
+            user_creds, user = self.auth.create_test_user(
+                {'password': 'TestPass123', 'name': 'UI Tester'}
+            )
+
+            class Response:
+                def __init__(self, u):
+                    self.status_code = 200 if u else 400
+
+            return user_creds, Response(user)
+
+    return APIClients(auth_repo)
 
 
 @pytest.fixture(params=['chrome', 'firefox'])
@@ -69,9 +84,10 @@ def driver(request):
         service = GeckoService(GeckoDriverManager().install())
         drv = webdriver.Firefox(service=service, options=opts)
 
-    drv.set_window_size(1200, 900)
+    drv.set_window_size(1280, 900)
     yield drv
     try:
         drv.quit()
     except Exception:
         pass
+
