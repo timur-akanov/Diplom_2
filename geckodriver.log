@@ -50,3 +50,338 @@ console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknow
 console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
 JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
 1786881531782	webdriver::server	INFO	Shutting down
+1787295406420	geckodriver	INFO	Listening on 127.0.0.1:65102
+1787295406856	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilega5zZp"
+1787295407147	Marionette	INFO	Marionette enabled
+2026-08-21 06:56:47.501 Firefox GPU Helper[47855:6392251] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 06:56:47.559 Firefox GPU Helper[47855:6392251] Error received in message reply handler: Connection invalid
+2026-08-21 06:56:47.559 Firefox GPU Helper[47855:6392348] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787295407619	Marionette	INFO	Listening on port 65109
+WebDriver BiDi listening on ws://127.0.0.1:65103
+Read port: 65109
+1787295407701	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1787295412372	Marionette	INFO	Stopped listening on port 65109
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295412610	webdriver::server	INFO	Shutting down
+1787295711453	geckodriver	INFO	Listening on 127.0.0.1:65321
+1787295711745	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilepTRA6k"
+1787295712025	Marionette	INFO	Marionette enabled
+2026-08-21 07:01:52.094 Firefox GPU Helper[48309:6397599] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:01:52.148 Firefox GPU Helper[48309:6397616] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:01:52.148 Firefox GPU Helper[48309:6397599] Error received in message reply handler: Connection invalid
+1787295712277	Marionette	INFO	Listening on port 65327
+WebDriver BiDi listening on ws://127.0.0.1:65322
+Read port: 65327
+1787295712467	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295717871	Marionette	INFO	Stopped listening on port 65327
+console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295718117	webdriver::server	INFO	Shutting down
+1787295730626	geckodriver	INFO	Listening on 127.0.0.1:65376
+1787295730891	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofile0OuC13"
+1787295731136	Marionette	INFO	Marionette enabled
+2026-08-21 07:02:11.202 Firefox GPU Helper[48356:6398729] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:02:11.251 Firefox GPU Helper[48356:6398743] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:02:11.251 Firefox GPU Helper[48356:6398729] Error received in message reply handler: Connection invalid
+1787295731332	Marionette	INFO	Listening on port 65382
+WebDriver BiDi listening on ws://127.0.0.1:65377
+Read port: 65382
+1787295731444	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295742712	Marionette	INFO	Stopped listening on port 65382
+1787295742946	webdriver::server	INFO	Shutting down
+1787295747693	geckodriver	INFO	Listening on 127.0.0.1:65429
+1787295748154	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofileKHwh6C"
+1787295748398	Marionette	INFO	Marionette enabled
+2026-08-21 07:02:28.475 Firefox GPU Helper[48402:6399709] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:02:28.523 Firefox GPU Helper[48402:6399709] Error received in message reply handler: Connection invalid
+2026-08-21 07:02:28.523 Firefox GPU Helper[48402:6399722] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787295748594	Marionette	INFO	Listening on port 65437
+WebDriver BiDi listening on ws://127.0.0.1:65430
+Read port: 65437
+1787295748701	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295754782	Marionette	INFO	Stopped listening on port 65437
+console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295755011	webdriver::server	INFO	Shutting down
+1787295760146	geckodriver	INFO	Listening on 127.0.0.1:65483
+1787295760418	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofileKQlQHN"
+1787295760662	Marionette	INFO	Marionette enabled
+2026-08-21 07:02:40.738 Firefox GPU Helper[48449:6400609] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:02:40.783 Firefox GPU Helper[48449:6400609] Error received in message reply handler: Connection invalid
+2026-08-21 07:02:40.783 Firefox GPU Helper[48449:6400622] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787295760862	Marionette	INFO	Listening on port 65489
+WebDriver BiDi listening on ws://127.0.0.1:65484
+Read port: 65489
+1787295760971	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1787295768464	Marionette	INFO	Stopped listening on port 65489
+console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
+1787295768705	webdriver::server	INFO	Shutting down
+1787295773292	geckodriver	INFO	Listening on 127.0.0.1:49156
+1787295773453	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilejgBSHd"
+1787295773677	Marionette	INFO	Marionette enabled
+2026-08-21 07:02:53.745 Firefox GPU Helper[48496:6401551] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:02:53.794 Firefox GPU Helper[48496:6401567] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:02:53.794 Firefox GPU Helper[48496:6401551] Error received in message reply handler: Connection invalid
+1787295773926	Marionette	INFO	Listening on port 49162
+WebDriver BiDi listening on ws://127.0.0.1:49157
+Read port: 49162
+1787295774000	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1787295777381	Marionette	INFO	Stopped listening on port 49162
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295777627	webdriver::server	INFO	Shutting down
+1787295787016	geckodriver	INFO	Listening on 127.0.0.1:49213
+1787295787262	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofiles5wzcw"
+1787295787493	Marionette	INFO	Marionette enabled
+2026-08-21 07:03:07.564 Firefox GPU Helper[48545:6402479] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:03:07.610 Firefox GPU Helper[48545:6402492] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:03:07.610 Firefox GPU Helper[48545:6402479] Error received in message reply handler: Connection invalid
+1787295787748	Marionette	INFO	Listening on port 49219
+WebDriver BiDi listening on ws://127.0.0.1:49214
+Read port: 49219
+1787295787822	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295795024	Marionette	INFO	Stopped listening on port 49219
+console.error: AboutNewTabResourceMapping: "train-hop add-on install failure: Error: Unexpected download cancelled while downloading xpi from https://archive.mozilla.org/pub/system-addons/newtab/newtab-154.8.0-build1/newtab.xpi"
+1787295795257	webdriver::server	INFO	Shutting down
+1787295800493	geckodriver	INFO	Listening on 127.0.0.1:49269
+1787295800766	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilex7xvE2"
+1787295801034	Marionette	INFO	Marionette enabled
+2026-08-21 07:03:21.112 Firefox GPU Helper[48590:6403396] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:03:21.158 Firefox GPU Helper[48590:6403413] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:03:21.158 Firefox GPU Helper[48590:6403396] Error received in message reply handler: Connection invalid
+1787295801230	Marionette	INFO	Listening on port 49275
+WebDriver BiDi listening on ws://127.0.0.1:49270
+Read port: 49275
+1787295801334	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295804942	Marionette	INFO	Stopped listening on port 49275
+[GPU 48590, IPC I/O Child] WARNING: pipe error: Socket is not connected: file checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_posix.cc:671
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295805179	webdriver::server	INFO	Shutting down
+1787295813833	geckodriver	INFO	Listening on 127.0.0.1:49325
+1787295814043	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofile3opEvk"
+1787295814278	Marionette	INFO	Marionette enabled
+2026-08-21 07:03:34.346 Firefox GPU Helper[48639:6404262] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 07:03:34.394 Firefox GPU Helper[48639:6404275] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 07:03:34.394 Firefox GPU Helper[48639:6404262] Error received in message reply handler: Connection invalid
+1787295814477	Marionette	INFO	Listening on port 49331
+WebDriver BiDi listening on ws://127.0.0.1:49326
+Read port: 49331
+1787295814585	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787295819253	Marionette	INFO	Stopped listening on port 49331
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787295819485	webdriver::server	INFO	Shutting down
+1787308051885	geckodriver	INFO	Listening on 127.0.0.1:49809
+1787308052201	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilefTfOWb"
+1787308052482	Marionette	INFO	Marionette enabled
+2026-08-21 10:27:32.554 Firefox GPU Helper[49038:6444296] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:27:32.610 Firefox GPU Helper[49038:6444309] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 10:27:32.610 Firefox GPU Helper[49038:6444296] Error received in message reply handler: Connection invalid
+1787308052679	Marionette	INFO	Listening on port 49815
+WebDriver BiDi listening on ws://127.0.0.1:49810
+Read port: 49815
+1787308052773	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787308056458	Marionette	INFO	Stopped listening on port 49815
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308056710	webdriver::server	INFO	Shutting down
+1787308060812	geckodriver	INFO	Listening on 127.0.0.1:49859
+1787308061212	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilencbZyR"
+1787308061456	Marionette	INFO	Marionette enabled
+2026-08-21 10:27:41.524 Firefox GPU Helper[49087:6445157] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:27:41.573 Firefox GPU Helper[49087:6445170] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 10:27:41.573 Firefox GPU Helper[49087:6445157] Error received in message reply handler: Connection invalid
+1787308061655	Marionette	INFO	Listening on port 49865
+WebDriver BiDi listening on ws://127.0.0.1:49860
+Read port: 49865
+1787308061763	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://qa-stellarburgers.education-services.ru."
+1787308064793	Marionette	INFO	Stopped listening on port 49865
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308065030	webdriver::server	INFO	Shutting down
+1787308069381	geckodriver	INFO	Listening on 127.0.0.1:49912
+1787308069778	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofileuRxIo4"
+1787308070006	Marionette	INFO	Marionette enabled
+2026-08-21 10:27:50.075 Firefox GPU Helper[49133:6445944] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:27:50.125 Firefox GPU Helper[49133:6445944] Error received in message reply handler: Connection invalid
+2026-08-21 10:27:50.125 Firefox GPU Helper[49133:6445957] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787308070202	Marionette	INFO	Listening on port 49918
+WebDriver BiDi listening on ws://127.0.0.1:49913
+Read port: 49918
+1787308070310	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1787308073924	Marionette	INFO	Stopped listening on port 49918
+JavaScript error: resource:///actors/LinkHandlerParent.sys.mjs, line 34: InvalidStateError: CanvasRenderingContext2D.drawImage: Passed-in video frame is "broken"
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308074155	webdriver::server	INFO	Shutting down
+1787308077532	geckodriver	INFO	Listening on 127.0.0.1:49965
+1787308077946	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilec8EKhn"
+1787308078189	Marionette	INFO	Marionette enabled
+2026-08-21 10:27:58.258 Firefox GPU Helper[49180:6446776] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:27:58.308 Firefox GPU Helper[49180:6446776] Error received in message reply handler: Connection invalid
+2026-08-21 10:27:58.308 Firefox GPU Helper[49180:6446792] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787308078384	Marionette	INFO	Listening on port 49971
+WebDriver BiDi listening on ws://127.0.0.1:49966
+Read port: 49971
+1787308078493	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: RSLoader: Recipe train-hop-co-enroll-pilot-to-beta-co-enrollment-1 not returned from collection nimbus-secure-experiments because it does not contain at least one required feature ID.
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+1787308081386	Marionette	INFO	Stopped listening on port 49971
+JavaScript error: resource:///actors/LinkHandlerParent.sys.mjs, line 34: InvalidStateError: CanvasRenderingContext2D.drawImage: Passed-in video frame is "broken"
+JavaScript error: resource:///actors/LinkHandlerParent.sys.mjs, line 34: InvalidStateError: CanvasRenderingContext2D.drawImage: Passed-in video frame is "broken"
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308081616	webdriver::server	INFO	Shutting down
+1787308083549	geckodriver	INFO	Listening on 127.0.0.1:50004
+1787308083959	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofilesYBfVJ"
+1787308084199	Marionette	INFO	Marionette enabled
+2026-08-21 10:28:04.282 Firefox GPU Helper[49224:6447513] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:28:04.324 Firefox GPU Helper[49224:6447535] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 10:28:04.324 Firefox GPU Helper[49224:6447513] Error received in message reply handler: Connection invalid
+1787308084389	Marionette	INFO	Listening on port 50010
+WebDriver BiDi listening on ws://127.0.0.1:50005
+Read port: 50010
+1787308084497	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+1787308085546	Marionette	INFO	Stopped listening on port 50010
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Could not sync nimbus-desktop-experiments: get-exception
+  Stack:
+    RemoteSettingsSyncError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1409:5
+getRecipesFromCollection@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:681:13
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:587:17
+quit@chrome://remote/content/shared/Browser.sys.mjs:102:22
+quit@chrome://remote/content/marionette/driver.sys.mjs:2844:44
+dispatch@chrome://remote/content/marionette/server.sys.mjs:317:49
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308086045	webdriver::server	INFO	Shutting down
+1787308087950	geckodriver	INFO	Listening on 127.0.0.1:50037
+1787308088351	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofileuxs2nZ"
+1787308088591	Marionette	INFO	Marionette enabled
+2026-08-21 10:28:08.659 Firefox GPU Helper[49267:6448161] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:28:08.706 Firefox GPU Helper[49267:6448174] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-08-21 10:28:08.706 Firefox GPU Helper[49267:6448161] Error received in message reply handler: Connection invalid
+1787308088787	Marionette	INFO	Listening on port 50043
+WebDriver BiDi listening on ws://127.0.0.1:50038
+Read port: 50043
+1787308088900	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+1787308089943	Marionette	INFO	Stopped listening on port 50043
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Could not sync nimbus-desktop-experiments: get-exception
+  Stack:
+    RemoteSettingsSyncError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1409:5
+getRecipesFromCollection@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:681:13
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:587:17
+quit@chrome://remote/content/shared/Browser.sys.mjs:102:22
+quit@chrome://remote/content/marionette/driver.sys.mjs:2844:44
+dispatch@chrome://remote/content/marionette/server.sys.mjs:317:49
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308090495	webdriver::server	INFO	Shutting down
+1787308092277	geckodriver	INFO	Listening on 127.0.0.1:50069
+1787308092681	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/opt/homebrew/bin/fire ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jy/m3x8cyxj2l9dl33f4_hfg5sh0000gn/T/rust_mozprofileHf6nPD"
+1787308092923	Marionette	INFO	Marionette enabled
+2026-08-21 10:28:12.993 Firefox GPU Helper[49310:6448777] Failure on line 688 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+2026-08-21 10:28:13.041 Firefox GPU Helper[49310:6448777] Error received in message reply handler: Connection invalid
+2026-08-21 10:28:13.041 Firefox GPU Helper[49310:6448792] Connection Invalid error for service com.apple.hiservices-xpcservice.
+1787308093121	Marionette	INFO	Listening on port 50075
+WebDriver BiDi listening on ws://127.0.0.1:50070
+Read port: 50075
+1787308093235	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+1787308094292	Marionette	INFO	Stopped listening on port 50075
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Could not sync nimbus-desktop-experiments: get-exception
+  Stack:
+    RemoteSettingsSyncError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1409:5
+getRecipesFromCollection@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:681:13
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:587:17
+quit@chrome://remote/content/shared/Browser.sys.mjs:102:22
+quit@chrome://remote/content/marionette/driver.sys.mjs:2844:44
+dispatch@chrome://remote/content/marionette/server.sys.mjs:317:49
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1787308094673	webdriver::server	INFO	Shutting down

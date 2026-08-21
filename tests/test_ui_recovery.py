@@ -1,6 +1,4 @@
 import allure
-import pytest
-from selenium.webdriver.common.by import By
 
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
@@ -34,28 +32,14 @@ class TestRecovery:
         main.open(BASE_URL)
         main.go_to_profile()
 
-        password_input = driver.find_elements(By.XPATH, "//input[@type='password' or @type='text']")
-        toggle_button = driver.find_elements(
-            By.XPATH,
-            "//button[contains(.,'Показать') or contains(.,'Скрыть') or @aria-label='show password' or @aria-label='hide password']"
-        )
-        if not password_input or not toggle_button:
-            pytest.skip('Password visibility toggle is not rendered on the current login/reset form')
+        recovery = RecoveryPage(driver)
+        assert recovery.password_toggle_is_available(), 'Password visibility toggle is not rendered on the current form'
 
-        password_input = password_input[0]
-        toggle_button = toggle_button[0]
-        before = driver.execute_script(
-            "const el = document.querySelector('input[type=\"password\"], input[type=\"text\"]'); return !!el && document.activeElement === el;"
-        )
+        before = recovery.is_password_field_active()
         assert before is False
 
-        toggle_button.click()
-
-        driver.execute_script(
-            "const el = document.querySelector('input[type=\"password\"], input[type=\"text\"]'); return el && el.focus();"
-        )
-        active = driver.execute_script(
-            "const el = document.querySelector('input[type=\"password\"], input[type=\"text\"]'); return !!el && document.activeElement === el;"
-        )
+        recovery.toggle_password_visibility()
+        recovery.focus_password_field()
+        active = recovery.is_password_field_active()
         assert active is True
-        assert password_input.get_attribute('type') in ('password', 'text')
+        assert recovery.password_field_type() in ('password', 'text')

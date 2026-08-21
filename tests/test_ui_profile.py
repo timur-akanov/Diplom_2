@@ -1,6 +1,4 @@
 import allure
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
@@ -17,7 +15,7 @@ class TestProfile:
         main = MainPage(driver)
         main.open(BASE_URL)
         main.go_to_profile()
-        assert '/login' in driver.current_url
+        assert '/login' in main.current_url()
 
         login = LoginPage(driver)
         login.input_email(creds['email'])
@@ -25,19 +23,18 @@ class TestProfile:
         login.click_show_password()
         login.click_login()
 
-        wait = WebDriverWait(driver, 10)
-        wait.until(lambda d: d.current_url.rstrip('/') == BASE_URL.rstrip('/'))
+        main.wait_for_url(BASE_URL)
 
         main.go_to_profile()
-        wait.until(lambda d: d.current_url.rstrip('/').endswith('/account/profile'))
-        current_url = driver.current_url
+        profile = ProfilePage(driver)
+        profile.wait_for_url_endswith('/account/profile')
+        current_url = profile.current_url()
         assert '/account/profile' in current_url
 
-        profile = ProfilePage(driver)
         profile.go_to_orders()
-        wait.until(lambda d: d.current_url.rstrip('/').endswith('/account/order-history'))
-        assert '/account/order-history' in driver.current_url
+        profile.wait_for_url_endswith('/account/order-history')
+        assert '/account/order-history' in profile.current_url()
 
         profile.logout()
-        wait.until(lambda d: d.current_url.rstrip('/').endswith('/login'))
-        assert driver.current_url.rstrip('/').endswith('/login')
+        profile.wait_for_url_endswith('/login')
+        assert profile.current_url().rstrip('/').endswith('/login')

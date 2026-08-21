@@ -18,24 +18,38 @@ def api_client():
         def __init__(self):
             self.http_client = APIClient()
             self.auth = AuthRepository(self.http_client)
-        
+
         def create_user(self):
             """Create a test user for UI tests.
-            
+
             Returns:
                 tuple: (user credentials dict, response)
             """
             user_creds, user = self.auth.create_test_user(
                 {"password": "TestPass123", "name": "UI Tester"}
             )
-            
+
             class Response:
                 def __init__(self, user):
                     self.status_code = 200 if user else 400
-            
+
             return user_creds, Response(user)
 
     return UITestAPIClient()
+
+
+@pytest.fixture
+def logged_in_user(api_client):
+    """Return a ready-to-use token for API-backed UI tests."""
+    creds, _ = api_client.auth.create_test_user()
+    user, status_code = api_client.auth.login(creds['email'], creds['password'])
+    assert status_code == 200
+    assert user is not None
+    return {
+        'email': creds['email'],
+        'password': creds['password'],
+        'token': user.access_token,
+    }
 
 
 @pytest.fixture(params=['chrome', 'firefox'])

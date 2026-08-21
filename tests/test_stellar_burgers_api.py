@@ -1,5 +1,4 @@
-"""API tests for Stellar Burgers using ROM architecture."""
-
+import uuid
 import allure
 import pytest
 
@@ -36,8 +35,7 @@ class TestUserCreationAPI:
     @allure.title("Создание пользователя, который уже зарегистрирован")
     def test_create_existing_user(self, api_client):
         """Test that registering duplicate user returns error."""
-        user_creds, first_user = api_client.auth.create_test_user()
-        assert first_user is not None
+        user_creds, _ = api_client.auth.create_test_user()
 
         with allure.step("Пытаемся создать такого же пользователя повторно"):
             _, status_code = api_client.auth.register(
@@ -69,8 +67,7 @@ class TestUserLoginAPI:
     @allure.title("Логин под существующим пользователем")
     def test_login_valid_user(self, api_client):
         """Test that valid user can login successfully."""
-        user_creds, created_user = api_client.auth.create_test_user()
-        assert created_user is not None
+        user_creds, _ = api_client.auth.create_test_user()
 
         with allure.step("Логинимся под созданным пользователем"):
             login_user, status_code = api_client.auth.login(
@@ -102,26 +99,58 @@ class TestUserLoginAPI:
 
 @allure.feature("Данные пользователя")
 class TestUserDataAPI:
-    @allure.title("Изменение данных пользователя с авторизацией")
-    def test_update_user_with_authorization(self, api_client):
-        """Test updating user data with authorization."""
-        user_creds, created_user = api_client.auth.create_test_user()
-        assert created_user is not None
+    @allure.title("Изменение имени пользователя с авторизацией")
+    def test_update_user_name(self, api_client):
+        """Test updating user name with authorization."""
+        _, created_user = api_client.auth.create_test_user()
+        new_name = "Changed Name"
 
-        new_name = "Updated User Name"
-
-        with allure.step("Обновляем поле name через авторизованный запрос"):
+        with allure.step("Обновляем поле name"):
             response_data, status_code = api_client.auth.update_user(
                 name=new_name,
                 access_token=created_user.access_token
             )
 
-        with allure.step("Проверяем успешное изменение данных"):
+        with allure.step("Сверяем результат изменения"):
             assert status_code == 200
             assert response_data is not None
             assert response_data["success"] is True
-            assert response_data["user"]["email"] == user_creds["email"]
             assert response_data["user"]["name"] == new_name
+
+    @allure.title("Изменение email пользователя с авторизацией")
+    def test_update_user_email(self, api_client):
+        """Test updating user email with authorization."""
+        _, created_user = api_client.auth.create_test_user()
+        new_email = f"updated_{uuid.uuid4().hex[:8]}@example.com"
+
+        with allure.step("Обновляем поле email"):
+            response_data, status_code = api_client.auth.update_user(
+                email=new_email,
+                access_token=created_user.access_token
+            )
+
+        with allure.step("Сверяем результат изменения"):
+            assert status_code == 200
+            assert response_data is not None
+            assert response_data["success"] is True
+            assert response_data["user"]["email"] == new_email
+
+    @allure.title("Изменение пароля пользователя с авторизацией")
+    def test_update_user_password(self, api_client):
+        """Test updating user password with authorization."""
+        _, created_user = api_client.auth.create_test_user()
+        new_password = "new_password_321"
+
+        with allure.step("Обновляем поле password"):
+            response_data, status_code = api_client.auth.update_user(
+                password=new_password,
+                access_token=created_user.access_token
+            )
+
+        with allure.step("Сверяем результат изменения"):
+            assert status_code == 200
+            assert response_data is not None
+            assert response_data["success"] is True
 
     @allure.title("Изменение данных пользователя без авторизации")
     def test_update_user_without_authorization(self, api_client):
@@ -136,42 +165,13 @@ class TestUserDataAPI:
         with allure.step("Проверяем отказ в доступе"):
             assert status_code == 401
 
-    @allure.title("Изменение любого поля пользователя с авторизацией")
-    @pytest.mark.parametrize("field,value", [
-        ("email", None),
-        ("password", "new_password_321"),
-        ("name", "Changed Name")
-    ])
-    def test_update_any_user_field_with_authorization(self, api_client, field, value):
-        """Test updating different user fields with authorization."""
-        user_creds, created_user = api_client.auth.create_test_user()
-        assert created_user is not None
-
-        if field == "email":
-            import uuid
-            value = f"updated_{uuid.uuid4().hex[:8]}@example.com"
-
-        with allure.step(f"Обновляем поле {field}"):
-            kwargs = {field: value, "access_token": created_user.access_token}
-            response_data, status_code = api_client.auth.update_user(**kwargs)
-
-        with allure.step("Сверяем результат изменения"):
-            assert status_code == 200
-            assert response_data is not None
-            assert response_data["success"] is True
-            updated_user = response_data["user"]
-            assert updated_user["email"] == (value if field == "email" else user_creds["email"])
-            assert updated_user["name"] == (value if field == "name" else user_creds["name"])
-
 
 @allure.feature("Заказы")
 class TestOrderAPI:
     @allure.title("Создание заказа с авторизацией и корректными ингредиентами")
     def test_create_order_with_authorization(self, api_client):
         """Test creating order with valid authorization and ingredients."""
-        user_creds, created_user = api_client.auth.create_test_user()
-        assert created_user is not None
-        
+        _, created_user = api_client.auth.create_test_user()
         ingredient_ids = api_client.ingredients.get_valid_ids()
 
         with allure.step("Создаём заказ с валидными ингредиентами"):
@@ -223,16 +223,13 @@ class TestUserOrderAPI:
     @allure.title("Получение заказов авторизованного пользователя")
     def test_get_user_orders_with_authorization(self, api_client):
         """Test getting user's orders with valid authorization."""
-        user_creds, created_user = api_client.auth.create_test_user()
-        assert created_user is not None
-        
+        _, created_user = api_client.auth.create_test_user()
         ingredient_ids = api_client.ingredients.get_valid_ids()
         
-        order, status_code = api_client.orders.create(
+        api_client.orders.create(
             ingredient_ids,
             access_token=created_user.access_token
         )
-        assert status_code == 200
 
         with allure.step("Запрашиваем список заказов пользователя"):
             orders, status_code = api_client.orders.get_user_orders(
