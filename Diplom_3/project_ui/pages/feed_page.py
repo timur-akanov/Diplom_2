@@ -1,11 +1,12 @@
+from constants import BASE_URL, FEED_URL
 from locators.locators import FeedPageLocators
 from pages.base_page import BasePage
 
 
 class FeedPage(BasePage):
-    def open(self, base_url):
+    def open(self, base_url=BASE_URL):
         base_url = base_url.rstrip("/")
-        self.driver.get(f"{base_url}/feed")
+        self.driver.get(FEED_URL if base_url == BASE_URL else f"{base_url}/feed")
 
     def wait_for_feed_loaded(self):
         self.wait_for_visibility(FeedPageLocators.FEED_TITLE)

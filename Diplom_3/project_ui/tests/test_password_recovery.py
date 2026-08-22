@@ -1,9 +1,8 @@
 import allure
 
+from constants import BASE_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL
 from pages.forgot_password_page import ForgotPasswordPage
 from pages.login_page import LoginPage
-
-BASE_URL = "https://qa-stellarburgers.education-services.ru"
 
 
 class TestPasswordRecovery:
@@ -13,7 +12,7 @@ class TestPasswordRecovery:
         login_page.open(BASE_URL)
         login_page.click_forgot_password()
         login_page.wait_for_url_contains("forgot-password")
-        assert "forgot-password" in driver.current_url
+        assert driver.current_url == FORGOT_PASSWORD_URL
 
     @allure.title("Ввод почты и клик по кнопке восстановления")
     def test_enter_email_and_click_restore(self, driver):
@@ -22,7 +21,7 @@ class TestPasswordRecovery:
         forgot_page.enter_email("test_user_diplom_12345@yandex.ru")
         forgot_page.click_restore_button()
         forgot_page.wait_for_url_contains("reset-password")
-        assert "reset-password" in driver.current_url
+        assert driver.current_url == RESET_PASSWORD_URL
 
     @allure.title("Кнопка показать/скрыть подсвечивает поле пароля")
     def test_toggle_password_visibility_activates_field(self, driver):

@@ -1,14 +1,15 @@
 from selenium.webdriver.common.by import By
 
+from constants import BASE_URL
 from locators.locators import MainPageLocators
 from pages.base_page import BasePage
 
 
 class MainPage(BasePage):
-    BASE_URL = "https://qa-stellarburgers.education-services.ru/"
+    BASE_URL = BASE_URL
 
     def open(self):
-        self.driver.get(self.BASE_URL.rstrip("/"))
+        self.driver.get(self.BASE_URL)
 
     def open_constructor(self):
         self.click(MainPageLocators.CONSTRUCTOR_LINK)
@@ -32,7 +33,8 @@ class MainPage(BasePage):
         self.click(MainPageLocators.CLOSE_MODAL_BUTTON)
 
     def modal_is_visible(self):
-        return len(self.driver.find_elements(*MainPageLocators.MODAL_CONTAINER)) > 0
+        modal = self.driver.find_elements(*MainPageLocators.MODAL_CONTAINER)
+        return bool(modal) and modal[0].is_displayed()
 
     def add_ingredient_to_burger(self, ingredient_name, target_locator=None):
         ingredient = self.ingredient_card(ingredient_name)

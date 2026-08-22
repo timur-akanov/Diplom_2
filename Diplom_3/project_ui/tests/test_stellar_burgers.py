@@ -6,20 +6,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from constants import BASE_URL, FEED_URL, LOGIN_URL, ORDERS_HISTORY_URL, PROFILE_URL, REGISTER_URL
 from locators.locators import AccountPageLocators
 from pages.account_page import AccountPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
-
-BASE_URL = "https://qa-stellarburgers.education-services.ru/"
-LOGIN_URL = f"{BASE_URL}login"
-PROFILE_URL = f"{BASE_URL}account/profile"
-ORDERS_HISTORY_URL = f"{BASE_URL}account/order-history"
-PASSWORD = "Password123"
+from secrets import PASSWORD
 
 
 def register_new_user(driver):
-    driver.get(f"{BASE_URL}register")
+    driver.get(REGISTER_URL)
     WebDriverWait(driver, 10).until(
         EC.visibility_of_all_elements_located((By.XPATH, "//input"))
     )
@@ -45,35 +41,43 @@ def logged_in_driver(driver):
     login_page = LoginPage(driver)
     login_page.open(BASE_URL)
     login_page.login(email, PASSWORD)
-    WebDriverWait(driver, 10).until(EC.url_to_be(BASE_URL))
+    WebDriverWait(driver, 10).until(EC.url_to_be(f"{BASE_URL}/"))
     return driver
 
 
 @allure.title("Переход по клику на Конструктор")
 def test_navigate_to_constructor(logged_in_driver):
     main_page = MainPage(logged_in_driver)
-    logged_in_driver.get(f"{BASE_URL}feed")
+    logged_in_driver.get(FEED_URL)
     main_page.open_constructor()
-    WebDriverWait(logged_in_driver, 10).until(EC.url_to_be(BASE_URL))
-    assert logged_in_driver.current_url == BASE_URL
+    WebDriverWait(logged_in_driver, 10).until(EC.url_to_be(f"{BASE_URL}/"))
+    assert logged_in_driver.current_url == f"{BASE_URL}/"
 
 
 @allure.title("Переход по клику на Лента заказов")
 def test_navigate_to_order_feed(logged_in_driver):
     main_page = MainPage(logged_in_driver)
     main_page.open_feed()
-    WebDriverWait(logged_in_driver, 10).until(EC.url_to_be(f"{BASE_URL}feed"))
-    assert logged_in_driver.current_url == f"{BASE_URL}feed"
+    WebDriverWait(logged_in_driver, 10).until(EC.url_to_be(FEED_URL))
+    assert logged_in_driver.current_url == FEED_URL
 
 
-@allure.title("Открытие деталей ингредиента и закрытие модалки")
-def test_ingredient_modal_opens_and_closes(logged_in_driver):
+@allure.title("Открытие деталей ингредиента")
+def test_ingredient_modal_opens(logged_in_driver):
     main_page = MainPage(logged_in_driver)
     main_page.open_ingredient("Краторная булка N-200i")
     modal = main_page.wait_for_visibility((By.XPATH, "//div[contains(@class, 'Modal_modal__container__')]"))
     assert "Детали ингредиента" in modal.text
+
+
+@allure.title("Закрытие модального окна ингредиента")
+def test_ingredient_modal_closes(logged_in_driver):
+    main_page = MainPage(logged_in_driver)
+    main_page.open_ingredient("Краторная булка N-200i")
+    main_page.wait_for_visibility((By.XPATH, "//div[contains(@class, 'Modal_modal__container__')]"))
     main_page.close_modal()
     main_page.wait_for_invisibility((By.XPATH, "//div[contains(@class, 'Modal_modal__container__')]"))
+    assert not main_page.modal_is_visible()
 
 
 @allure.title("Счётчик ингредиента увеличивается после добавления в заказ")

@@ -1,12 +1,13 @@
+from constants import BASE_URL, FORGOT_PASSWORD_URL
 from pages.base_page import BasePage
 from locators.locators import ForgotPasswordPageLocators
 
 
 class ForgotPasswordPage(BasePage):
-    BASE_URL = "https://qa-stellarburgers.education-services.ru"
+    BASE_URL = BASE_URL
 
     def open(self):
-        self.driver.get(f"{self.BASE_URL}/forgot-password")
+        self.driver.get(FORGOT_PASSWORD_URL)
 
     def enter_email(self, email):
         self.send_keys(ForgotPasswordPageLocators.EMAIL_INPUT, email)

@@ -1,11 +1,12 @@
+from constants import BASE_URL, LOGIN_URL
 from pages.base_page import BasePage
 from locators.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
-    def open(self, base_url):
+    def open(self, base_url=BASE_URL):
         base_url = base_url.rstrip("/")
-        self.driver.get(f"{base_url}/login")
+        self.driver.get(LOGIN_URL if base_url == BASE_URL else f"{base_url}/login")
 
     def login(self, email, password):
         self.send_keys(LoginPageLocators.EMAIL_INPUT, email)
