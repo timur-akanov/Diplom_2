@@ -6,7 +6,7 @@ from pages.base_page import BasePage
 class AccountPage(BasePage):
     def open(self, base_url=BASE_URL):
         base_url = base_url.rstrip("/")
-        self.driver.get(PROFILE_URL if base_url == BASE_URL else f"{base_url}/account/profile")
+        self.open_url(PROFILE_URL if base_url == BASE_URL else f"{base_url}/account/profile")
 
     def open_order_history(self):
         self.click(AccountPageLocators.ORDER_HISTORY_LINK)

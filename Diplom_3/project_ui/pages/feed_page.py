@@ -6,10 +6,16 @@ from pages.base_page import BasePage
 class FeedPage(BasePage):
     def open(self, base_url=BASE_URL):
         base_url = base_url.rstrip("/")
-        self.driver.get(FEED_URL if base_url == BASE_URL else f"{base_url}/feed")
+        self.open_url(FEED_URL if base_url == BASE_URL else f"{base_url}/feed")
 
     def wait_for_feed_loaded(self):
         self.wait_for_visibility(FeedPageLocators.FEED_TITLE)
+
+    def wait_for_order_cards_loaded(self):
+        self.wait_for_visibility(FeedPageLocators.ORDER_CARD)
+
+    def order_cards_count(self):
+        return len(self.find_elements(FeedPageLocators.ORDER_CARD))
 
     def total_counter_text(self):
         return self.find_element(FeedPageLocators.COUNTER_TOTAL).text

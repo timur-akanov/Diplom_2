@@ -7,7 +7,7 @@ class ForgotPasswordPage(BasePage):
     BASE_URL = BASE_URL
 
     def open(self):
-        self.driver.get(FORGOT_PASSWORD_URL)
+        self.open_url(FORGOT_PASSWORD_URL)
 
     def enter_email(self, email):
         self.send_keys(ForgotPasswordPageLocators.EMAIL_INPUT, email)

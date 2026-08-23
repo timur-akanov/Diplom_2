@@ -6,6 +6,7 @@ class LoginPageLocators:
     PASSWORD_INPUT = (By.NAME, "Пароль")
     LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
     FORGOT_PASSWORD_LINK = (By.XPATH, "//a[contains(., 'Восстановить пароль')]")
+    LOGIN_HEADER = (By.XPATH, "//h2[text()='Вход']")
 
 
 class ForgotPasswordPageLocators:
